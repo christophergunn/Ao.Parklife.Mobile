@@ -146,6 +146,31 @@ var app = (function()
 		$(document).ready(function() {
 			addEventHandlers();
 		});
+
+        // Reference the auto-generated proxy for the hub.  
+        var chat = $.connection.chatHub;
+        // Create a function that the hub can call back to display messages.
+        chat.client.addNewMessageToPage = function (name, message) {
+            // Add the message to the page. 
+            $('#discussion').append('<li><strong>' + htmlEncode(name) 
+                + '</strong>: ' + htmlEncode(message) + '</li>');
+        };
+        // Set initial focus to message input box.  
+        $('#message').focus();
+        // Start the connection.
+        $.connection.hub.start().done(function () {
+            $('#sendmessage').click(function () {
+                // Call the Send method on the hub. 
+                chat.server.send(userId, $('#message').val());
+                // Clear text box and reset focus for next comment. 
+                $('#message').val('').focus();
+            });
+        });
+        // This optional function html-encodes messages for display in the page.
+        function htmlEncode(value) {
+            var encodedValue = $('<div />').text(value).html();
+            return encodedValue;
+        }
 	};
 
 	function addEventHandlers() 
@@ -153,6 +178,7 @@ var app = (function()
 		$('#sign-in-button').click(function(e) {
 			console.log('Sign-in clicked');
 			e.preventDefault();
+			userId = $('#username').val();
 			transitionToMainView();
 		});
 		$('#send-chat').click(function(e) {

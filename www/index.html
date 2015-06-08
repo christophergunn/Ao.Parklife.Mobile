@@ -7,40 +7,72 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no
 		initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 
-	<title>Hello World</title>
+	<title>Cordova iBeacon</title>
 
 	<style>
 		@import 'ui/css/evothings-app.css';
 	</style>
+	
+
 
 	<script>
 	// Redirect console.log to Evothings Workbench.
 	if (window.hyper && window.hyper.log) { console.log = hyper.log }
 	</script>
 
+	<script src="cordova.js"></script>
+	<script src="libs/jquery/jquery.js"></script>
 	<script src="libs/evothings/evothings.js"></script>
+	<script src="libs/ko/knockout-3.3.0.js"></script>
+	<script src="app.js"></script>
 
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 
-<body ontouchstart=""><!-- ontouchstart="" enables low-delay CSS transitions. -->
+<body>
 
-	<header>
-		<button class="back" onclick="history.back()">
-			<img src="ui/images/arrow-left.svg" />
-		</button>
+	<div class="container" id="loginPage">
+	    <div class="row">
+	        <div class="col-sm-6 col-md-4 col-md-offset-4">
+	            <div class="account-wall">
+	                <img class="profile-img" src="ui/images/parklife_logo_header.png" alt="">
+	                <form class="form-signin">
+		                <div class="input-group">
+						  <input type="text" class="form-control" placeholder="e-mail" aria-describedby="basic-addon2">
+						  <span class="input-group-addon" id="basic-addon2">@ao.com</span>
+						</div>
 
-		<img class="logotype" src="ui/images/logo.svg" alt="Evothings" />
+		                <button class="btn btn-lg btn-primary btn-block sign-in-button" type="button" id="sign-in-button">Sign-in</button>
+	                </form>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 
-		<!--<button class="menu" onclick=""><img src="ui/images/menu.svg" /></button>-->
-	</header>
+	<div class="container hidden" id="mainPage">
+		<div class="row">
 
-	<p>Hello Raj</p>
-	
-	<ol>
-		<li>Press the "Code" button in the Workbench window to see the source
-			file of this example app.</li>
-	</ol>
+	        <div class="col-sm-6 col-md-4 col-md-offset-4">
+	            <div class="account-wall">
 
+					<h1>Park Life</h1>
+
+					<p>You are currently closest to:</p>
+
+					<ul id="beacon" class="dynamic"></ul>
+
+					<p>Events:</p>
+
+					<ul id="events" class="dynamic"></ul>
+				</div>
+			</div>
+
+		</div>
+	</div>
 </body>
 
 </html>

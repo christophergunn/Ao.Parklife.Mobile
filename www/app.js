@@ -143,7 +143,7 @@ var app = (function()
 			var userIndex = Math.floor(Math.random() * (users.length))
 			var messageIndex = Math.floor(Math.random() * (messages.length))
 			console.log(userIndex)
-			$('#chat').append('<li><p><span>' + users[userIndex] + 
+			$('#chat').prepend('<li><p><span>' + users[userIndex] + 
 				':</span> ' + messages[messageIndex] + '</p></li>')
 		}
 
@@ -165,7 +165,7 @@ var app = (function()
         // Create a function that the hub can call back to display messages.
         chat.client.addNewMessageToPage = function (name, message) {
             // Add the message to the page. 
-            $('#discussion').append('<li><strong>' + htmlEncode(name) 
+            $('#discussion').prepend('<li><strong>' + htmlEncode(name) 
                 + '</strong>: ' + htmlEncode(message) + '</li>');
         };
         // Set initial focus to message input box.  

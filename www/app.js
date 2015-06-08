@@ -128,13 +128,26 @@ var app = (function()
 		$('#loginPage').addClass('hidden');
 		$('#mainPage').removeClass('hidden');
 
-		var interval = setInterval(updateChat, 5000);
-
 		var updateChat = function() {
-    		$.get( "http://parklifeservices.apphb.com/api/getchat", function( data ) {
-
-			})
+			console.log(chat)
+			var users = ["Vince", "Raj", "Mo", "Adam", "Matt", "Rob", "Ryan"]
+			var messages = ["Mmm, breakfast sausages!",
+				"I love the crispy salad!",
+				"Someone grab me a Freddo, please",
+				"Carb me up, baby",
+				"Daddy or chips? Chips",
+				"Skinny decaf mocha frappuccino for me!",
+				"Can you get me a banana?",
+				"Braaaaaiiiiinnnnns!!!"
+			]
+			var userIndex = Math.floor(Math.random() * (users.length))
+			var messageIndex = Math.floor(Math.random() * (messages.length))
+			console.log(userIndex)
+			$('#chat').append('<li><p><span>' + users[userIndex] + 
+				':</span> ' + messages[messageIndex] + '</p></li>')
 		}
+
+		var interval = setInterval(updateChat, 2500);
 	}
 
 	app.initialize = function()
@@ -158,7 +171,9 @@ var app = (function()
 		$('#send-chat').click(function(e) {
 			console.log('send-chat clicked');
 			e.preventDefault();
+			var message = $('#message').val()
 			$('#message').val('')
+			$('#chat').append('<li><p><span>' + userId + ':</span> ' + message + '</p></li>')
 		});
 	}
 

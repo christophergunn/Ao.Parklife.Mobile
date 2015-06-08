@@ -127,6 +127,14 @@ var app = (function()
 	function transitionToMainView() {
 		$('#loginPage').addClass('hidden');
 		$('#mainPage').removeClass('hidden');
+
+		var interval = setInterval(updateChat, 5000);
+
+		var updateChat = function() {
+    		$.get( "http://parklifeservices.apphb.com/api/getchat", function( data ) {
+
+			})
+		}
 	}
 
 	app.initialize = function()

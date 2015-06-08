@@ -8,10 +8,6 @@
 		initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 
 	<title>Cordova iBeacon</title>
-
-	<style>
-		@import 'ui/css/evothings-app.css';
-	</style>
 	
 
 
@@ -28,6 +24,7 @@
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="ui/css/evothings-app.css">
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -58,16 +55,25 @@
 
 	        <div class="col-sm-6 col-md-4 col-md-offset-4">
 	            <div class="account-wall">
+	                <img class="profile-img" src="ui/images/parklife_logo_header.png" alt="">
 
-					<h1>Park Life</h1>
-
-					<p>You are currently closest to:</p>
+					<h2>You are currently closest to:</h2>
 
 					<ul id="beacon" class="dynamic"></ul>
 
-					<p>Events:</p>
+					<h2>Chat:</h2>
 
-					<ul id="events" class="dynamic"></ul>
+					<ul id="chat" class="dynamic">
+						<li>
+							<p><span>Vince:</span> Ooh, some non-descript meat wrap!</p>
+						</li>
+						<li>
+							<p><span>Vince:</span> Ooh, some non-descript meat wrap!</p>
+						</li>
+						<li>
+							<p><span>Vince:</span> Ooh, some non-descript meat wrap!</p>
+						</li>
+					</ul>
 				</div>
 			</div>
 

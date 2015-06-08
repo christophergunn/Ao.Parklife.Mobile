@@ -92,7 +92,8 @@ body {
 }
 
 #mainPage .account-wall { padding: 20px;}
-
+#mainPage form { margin-bottom: 10px;}
+#mainPage form input[type="text"] { width: 262px; float: left;}
 #chat {
     list-style: none; margin: 0; padding: 0;
 }

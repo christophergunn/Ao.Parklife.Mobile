@@ -155,6 +155,11 @@ var app = (function()
 			e.preventDefault();
 			transitionToMainView();
 		});
+		$('#send-chat').click(function(e) {
+			console.log('send-chat clicked');
+			e.preventDefault();
+			$('#message').val('')
+		});
 	}
 
 	function onDeviceReady()
